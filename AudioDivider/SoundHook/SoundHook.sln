@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundHook", "SoundHook\SoundHook.vcxproj", "{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Debug64|Win32 = Debug64|Win32
+		Debug64|x64 = Debug64|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		Release64|Win32 = Release64|Win32
+		Release64|x64 = Release64|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Debug|Win32.Build.0 = Debug|Win32
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Debug|x64.ActiveCfg = Debug|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Debug|x64.Build.0 = Debug|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Debug64|Win32.ActiveCfg = Debug64|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Debug64|Win32.Build.0 = Debug64|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Debug64|x64.ActiveCfg = Debug64|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Debug64|x64.Build.0 = Debug64|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Release|Win32.ActiveCfg = Release|Win32
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Release|Win32.Build.0 = Release|Win32
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Release|x64.ActiveCfg = Release|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Release|x64.Build.0 = Release|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Release64|Win32.ActiveCfg = Release64|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Release64|Win32.Build.0 = Release64|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Release64|x64.ActiveCfg = Release64|x64
+		{7A811F9E-94CA-4F5F-A133-534E0CC2CE51}.Release64|x64.Build.0 = Release64|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D13E753A-4956-41D2-9AF8-2F8E315FCA5F}
+	EndGlobalSection
+EndGlobal
