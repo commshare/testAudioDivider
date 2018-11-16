@@ -48,9 +48,13 @@ CreateNamedPipe("\\\\.\\Pipe\\Test",PIPE_ACCESS_DUPLEX,PIPE_NOWAIT,10,1024,1024,
 1、指向一个命名管道实例的服务器的句柄，该句柄由CreateNamedPipe函数返回
 2、指向OVERLAPPED结构体的指针，默认为NULL，表明使用默认的同步IO方式1
 		*/
+		printf("Server is now running \n");
+
 		if (!ConnectNamedPipe(hPipe, NULL))						//阻塞等待客户端连接。  
 		{
 			cout << "连接失败!" << endl;
+			printf("ConnectNamePipe failed with error %x \n", GetLastError());
+			CloseHandle(hPipe);
 			return 1;
 		}
 		else
@@ -75,21 +79,34 @@ ReadFile(hPipe, buf, 256, &rLen, NULL)
 4、用来接收实际读取到的字节数
 5、指向OVERLAPPED结构体的指针，默认为NULL，表明使用默认的同步IO方式
 ---------------------
-作者：土豪gold
-来源：CSDN
-原文：https://blog.csdn.net/qq_15029743/article/details/79508568
-版权声明：本文为博主原创文章，转载请附上博文链接！
+
+http://www.itboth.com/d/VjyAvi
+同步情况下，ReadFile是阻塞读，遇到下列一个情况返回：
+
+（1）A write operation completes on the write end of the pipe.
+（2）The number of bytes requested is read.
+（3）An error occurs.
 		*/
 		if (!ReadFile(hPipe, buf, 256, &rLen, NULL))			//接受客户端发送数据
 		{
 			cout << "从客户端接收并读取数据!" << endl;
+			printf("ReadFile failed with error %x \n", GetLastError());
+			CloseHandle(hPipe);
 			return 2;
 		}
-		else
+		else {
 			cout << "客户端接收的数据为 ： " << buf << endl << "数据长度为 " << rLen << endl;
+		}
 
 		char strMessage[] = "命名管道测试程序";
 		WriteFile(hPipe, strMessage, sizeof(strMessage), &wLen, 0); //向客户端发送数据
+
+		if (DisconnectNamedPipe(hPipe) == 0)
+		{
+			printf("DisconnectNamedPipe failed with error %x \n", GetLastError());
+			return 0;
+		}
+
 		CloseHandle(hPipe);											//关闭管道句柄 
 	}
 	system("pause");

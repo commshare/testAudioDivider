@@ -26,6 +26,8 @@ int main()
 	if (!WaitNamedPipe(TEXT("\\\\.\\Pipe\\pipeTest"), NMPWAIT_WAIT_FOREVER))
 	{
 		cout << "connect the namedPipe failed!" << endl;
+		printf("CreateNamedPipe failed with error %x \n", GetLastError());
+
 		return 1;
 	}
 
@@ -52,6 +54,8 @@ int main()
 	if (INVALID_HANDLE_VALUE == hPipe)
 	{
 		cout << "打开通道失败!" << endl;
+		printf("CreateFile failed with error %x \n", GetLastError());
+
 		return 2;
 	}
 	char strMessage[] = "命名管道测试程序";
@@ -59,11 +63,15 @@ int main()
 	if (!WriteFile(hPipe, strMessage, sizeof(strMessage), &wLen, 0)) //向管道发送数据  
 	{
 		cout << "向通道写数据失败!" << endl;
+		printf("WriteFile failed with error %x \n", GetLastError());
+		CloseHandle(hPipe);
 		return 3;
 	}
+	printf("Wrote %d bytes \n", wLen);
 	if (!ReadFile(hPipe, buf, 256, &rLen, NULL))					//读取管道数据
 	{
 		cout << "从通道读数据失败!" << endl;
+		CloseHandle(hPipe);
 		return 4;
 	}
 	else
