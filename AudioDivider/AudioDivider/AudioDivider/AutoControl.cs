@@ -66,5 +66,9 @@ namespace AudioDivider
             return programAutoInfo;
         }
 
+        private void lbl_SwitchTo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

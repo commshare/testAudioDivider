@@ -9,6 +9,7 @@ namespace AudioDivider
 		this->name = name;
 		this->pid = pid;
 		this->deviceID = deviceID;
+		//根据进程id获取进程
 		process = Process::GetProcessById(pid);
 	}
 

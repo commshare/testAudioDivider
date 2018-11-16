@@ -18,7 +18,7 @@ namespace AudioDivider
             Logger.setLogger(new Logger(configuration));
 
             Communication communication = new Communication();
-
+            //"E:\\edu100dev\\AudioDividerOK\\AudioDivider\\AudioDivider\\AudioDivider\\bin\\Debug\\"
             string workingDirectory = Directory.GetCurrentDirectory() + "\\";
 
             configuration = new Configuration(workingDirectory);

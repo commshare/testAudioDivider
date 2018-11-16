@@ -37,10 +37,11 @@ namespace AudioDivider
         }
 
         List<ProgramInfo> controlledPrograms = new List<ProgramInfo>();
+        //这个是正在运行的程序吧
         List<ProgramInfo> runningPrograms = new List<ProgramInfo>();
 
         ProgramInfo GetRunningProgram(ProgramInfo program)
-        {
+        { //program被填充：Path："D:\\Program Files (x86)\\Tencent\\QQMusic\\QQMusic.exe" deviceId "{0.0.0.00000000}.{5e15fcfe-b0ad-4d3d-8f71-ffd890b3144c}"
             foreach (var runningProgram in runningPrograms)
             {
                 if (runningProgram.pid == program.pid)
@@ -48,7 +49,7 @@ namespace AudioDivider
             }
             return null;
         }
-
+        //刷新声音信息
         void RefreshSoundInfo()
         {
             if (configuration.ShowOnlyActivePrograms)
@@ -57,7 +58,7 @@ namespace AudioDivider
             runningPrograms.RemoveAll(program => !program.IsAlive());
 
             List<SoundInfoDevice> devices = SoundHandler.getSoundInfo();
-
+            //遍历所有设备
             foreach (var device in devices)
             {
                 foreach (var program in device.sessions)
@@ -68,6 +69,7 @@ namespace AudioDivider
                         runningPrograms.Add(runningProgram);
                     else
                         runningProgramExisting.deviceID = runningProgram.deviceID;
+                    //要自动注入么？
                     autoInjectHandler.RunDelayedInject(program.pid);
                 }
             }
@@ -170,12 +172,12 @@ namespace AudioDivider
         private void btn_Set_Click(object sender, EventArgs e)
         {
             if (treeSound.SelectedNode != null && combo_Devices.SelectedItem != null)
-            {
+            {   //所有设备及其声音信息
                 List<SoundInfoDevice> devices = SoundHandler.getSoundInfo();
-
+                //拿出一个进程？
                 int pid = runningPrograms[(int)treeSound.SelectedNode.Tag].pid;
-                string deviceId = devices[combo_Devices.SelectedIndex].ID;
-
+                string deviceId = devices[combo_Devices.SelectedIndex].ID;//拿出一个设备id？
+                //将播放声音的进程与某个输出设备绑定，1是什么
                 communication.ServerSend(pid, 1, deviceId);
             }
 

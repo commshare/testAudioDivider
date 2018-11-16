@@ -31,7 +31,7 @@ namespace AudioDivider
             {
                 this.pid = pid;
                 this.action = action;
-                this.data = new byte[200];
+                this.data = new byte[200]; //要逐个字节的复制么？
                 for (int i = 0; i < mesData.Length; i++)
                 {
                     this.data[i] = mesData[i];

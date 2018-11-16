@@ -45,9 +45,10 @@
             // radio_ProcessPath
             // 
             this.radio_ProcessPath.AutoSize = true;
-            this.radio_ProcessPath.Location = new System.Drawing.Point(6, 19);
+            this.radio_ProcessPath.Location = new System.Drawing.Point(8, 22);
+            this.radio_ProcessPath.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.radio_ProcessPath.Name = "radio_ProcessPath";
-            this.radio_ProcessPath.Size = new System.Drawing.Size(85, 17);
+            this.radio_ProcessPath.Size = new System.Drawing.Size(116, 19);
             this.radio_ProcessPath.TabIndex = 0;
             this.radio_ProcessPath.TabStop = true;
             this.radio_ProcessPath.Text = "Programpath";
@@ -58,9 +59,11 @@
             // 
             this.group_SelectBy.Controls.Add(this.radio_WindowName);
             this.group_SelectBy.Controls.Add(this.radio_ProcessPath);
-            this.group_SelectBy.Location = new System.Drawing.Point(99, 19);
+            this.group_SelectBy.Location = new System.Drawing.Point(132, 22);
+            this.group_SelectBy.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.group_SelectBy.Name = "group_SelectBy";
-            this.group_SelectBy.Size = new System.Drawing.Size(200, 72);
+            this.group_SelectBy.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.group_SelectBy.Size = new System.Drawing.Size(267, 83);
             this.group_SelectBy.TabIndex = 1;
             this.group_SelectBy.TabStop = false;
             this.group_SelectBy.Text = "Identify by";
@@ -68,9 +71,10 @@
             // radio_WindowName
             // 
             this.radio_WindowName.AutoSize = true;
-            this.radio_WindowName.Location = new System.Drawing.Point(6, 42);
+            this.radio_WindowName.Location = new System.Drawing.Point(8, 48);
+            this.radio_WindowName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.radio_WindowName.Name = "radio_WindowName";
-            this.radio_WindowName.Size = new System.Drawing.Size(90, 17);
+            this.radio_WindowName.Size = new System.Drawing.Size(108, 19);
             this.radio_WindowName.TabIndex = 1;
             this.radio_WindowName.TabStop = true;
             this.radio_WindowName.Text = "Windowname";
@@ -81,9 +85,10 @@
             // 
             this.btn_Ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_Ok.Enabled = false;
-            this.btn_Ok.Location = new System.Drawing.Point(12, 153);
+            this.btn_Ok.Location = new System.Drawing.Point(16, 177);
+            this.btn_Ok.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Ok.Name = "btn_Ok";
-            this.btn_Ok.Size = new System.Drawing.Size(78, 23);
+            this.btn_Ok.Size = new System.Drawing.Size(104, 27);
             this.btn_Ok.TabIndex = 2;
             this.btn_Ok.Text = "OK";
             this.btn_Ok.UseVisualStyleBackColor = true;
@@ -92,9 +97,10 @@
             // btn_Cancel
             // 
             this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_Cancel.Location = new System.Drawing.Point(486, 149);
+            this.btn_Cancel.Location = new System.Drawing.Point(648, 172);
+            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(78, 23);
+            this.btn_Cancel.Size = new System.Drawing.Size(104, 27);
             this.btn_Cancel.TabIndex = 3;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
@@ -104,28 +110,33 @@
             // 
             this.combo_Devices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_Devices.FormattingEnabled = true;
-            this.combo_Devices.Location = new System.Drawing.Point(99, 97);
+            this.combo_Devices.Location = new System.Drawing.Point(132, 112);
+            this.combo_Devices.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.combo_Devices.Name = "combo_Devices";
-            this.combo_Devices.Size = new System.Drawing.Size(391, 21);
+            this.combo_Devices.Size = new System.Drawing.Size(520, 23);
             this.combo_Devices.TabIndex = 6;
             this.combo_Devices.SelectedIndexChanged += new System.EventHandler(this.combo_Devices_SelectedIndexChanged);
             // 
             // lbl_SwitchTo
             // 
             this.lbl_SwitchTo.AutoSize = true;
-            this.lbl_SwitchTo.Location = new System.Drawing.Point(36, 100);
+            this.lbl_SwitchTo.Location = new System.Drawing.Point(48, 115);
+            this.lbl_SwitchTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_SwitchTo.Name = "lbl_SwitchTo";
-            this.lbl_SwitchTo.Size = new System.Drawing.Size(54, 13);
+            this.lbl_SwitchTo.Size = new System.Drawing.Size(87, 15);
             this.lbl_SwitchTo.TabIndex = 7;
             this.lbl_SwitchTo.Text = "Switch to:";
+            this.lbl_SwitchTo.Click += new System.EventHandler(this.lbl_SwitchTo_Click);
             // 
             // group_ControlWhen
             // 
             this.group_ControlWhen.Controls.Add(this.radio_ProgramPlayAudio);
             this.group_ControlWhen.Controls.Add(this.radio_ProgramStarts);
-            this.group_ControlWhen.Location = new System.Drawing.Point(319, 19);
+            this.group_ControlWhen.Location = new System.Drawing.Point(425, 22);
+            this.group_ControlWhen.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.group_ControlWhen.Name = "group_ControlWhen";
-            this.group_ControlWhen.Size = new System.Drawing.Size(200, 72);
+            this.group_ControlWhen.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.group_ControlWhen.Size = new System.Drawing.Size(267, 83);
             this.group_ControlWhen.TabIndex = 2;
             this.group_ControlWhen.TabStop = false;
             this.group_ControlWhen.Text = "Control when";
@@ -133,9 +144,10 @@
             // radio_ProgramPlayAudio
             // 
             this.radio_ProgramPlayAudio.AutoSize = true;
-            this.radio_ProgramPlayAudio.Location = new System.Drawing.Point(6, 42);
+            this.radio_ProgramPlayAudio.Location = new System.Drawing.Point(8, 48);
+            this.radio_ProgramPlayAudio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.radio_ProgramPlayAudio.Name = "radio_ProgramPlayAudio";
-            this.radio_ProgramPlayAudio.Size = new System.Drawing.Size(157, 17);
+            this.radio_ProgramPlayAudio.Size = new System.Drawing.Size(252, 19);
             this.radio_ProgramPlayAudio.TabIndex = 1;
             this.radio_ProgramPlayAudio.TabStop = true;
             this.radio_ProgramPlayAudio.Text = "Program starts playing audio";
@@ -144,9 +156,10 @@
             // radio_ProgramStarts
             // 
             this.radio_ProgramStarts.AutoSize = true;
-            this.radio_ProgramStarts.Location = new System.Drawing.Point(6, 19);
+            this.radio_ProgramStarts.Location = new System.Drawing.Point(8, 22);
+            this.radio_ProgramStarts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.radio_ProgramStarts.Name = "radio_ProgramStarts";
-            this.radio_ProgramStarts.Size = new System.Drawing.Size(92, 17);
+            this.radio_ProgramStarts.Size = new System.Drawing.Size(140, 19);
             this.radio_ProgramStarts.TabIndex = 0;
             this.radio_ProgramStarts.TabStop = true;
             this.radio_ProgramStarts.Text = "Program starts";
@@ -155,16 +168,17 @@
             // FormAutoControl
             // 
             this.AcceptButton = this.btn_Ok;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Cancel;
-            this.ClientSize = new System.Drawing.Size(576, 188);
+            this.ClientSize = new System.Drawing.Size(768, 217);
             this.Controls.Add(this.group_ControlWhen);
             this.Controls.Add(this.lbl_SwitchTo);
             this.Controls.Add(this.combo_Devices);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.group_SelectBy);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormAutoControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AutoControl";
