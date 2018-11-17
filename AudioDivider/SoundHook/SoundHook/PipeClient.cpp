@@ -1,16 +1,22 @@
 #include "allIncludes.h"
+#include <atlstr.h>
 
 void PipeClientMessage(ClientMessage message)
 {
 	switch(message.action)
 	{
 	case 1:
-		addLog("Switching to device.");
+		addLog("Switching to device begin");
 		// Copy string from temporary message into a new string
 		LPWSTR str = (LPWSTR) &message.data[0];
 		int strLen = wcslen(str) + 1;
 		forceDeviceId = new wchar_t[strLen];
+
 		memcpy(forceDeviceId, &message.data[0], strLen*sizeof(wchar_t));
+		std::string coutstr = CW2A((LPCWSTR)forceDeviceId);
+
+		addLog("Switching to device end" + coutstr);
+
 		break;
 	}
 }
@@ -28,7 +34,7 @@ void PipeClientStart()
 	{
 		HANDLE hPipe = CreateFile(pipeName, GENERIC_WRITE | GENERIC_READ, 0, NULL, OPEN_EXISTING, 0, NULL);
 		if(hPipe == INVALID_HANDLE_VALUE)
-		{	
+		{
 			if(!loggedAfterPipeBroke)
 			{
 				if(GetLastError() != ERROR_FILE_NOT_FOUND)
@@ -49,7 +55,7 @@ void PipeClientStart()
 			continue;
 		}
 		loggedAfterPipeBroke = false;
-	
+
 		addLog("Connected.");
 		bool clientConnected = true;
 		while(clientConnected)
@@ -92,7 +98,7 @@ void PipeClientStart()
 
 				Sleep(50);
 			}
-		
+
 		}
 	}
 	addLog("Client ended.");

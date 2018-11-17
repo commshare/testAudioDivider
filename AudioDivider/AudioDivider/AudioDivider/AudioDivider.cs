@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -178,6 +178,8 @@ namespace AudioDivider
                 int pid = runningPrograms[(int)treeSound.SelectedNode.Tag].pid;
                 string deviceId = devices[combo_Devices.SelectedIndex].ID;//拿出一个设备id？
                 //将播放声音的进程与某个输出设备绑定，1是什么
+                //AOL 		deviceId	"{0.0.0.00000000}.{44486876-6dc6-4247-bddd-b6a3e13007c1}"	string
+                //扬声器		deviceId	"{0.0.0.00000000}.{5a537756-fa6e-47e0-8af7-5d6aa48f1b8a}"	string
                 communication.ServerSend(pid, 1, deviceId);
             }
 

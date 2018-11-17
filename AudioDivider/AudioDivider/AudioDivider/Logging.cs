@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,14 +37,14 @@ namespace AudioDivider
         {
             try
             {
-                File.AppendAllText(configuration.DataFolder + "AudioDivider.log", DateTime.Now.ToString("'['hh':'mm':'ss'] '") + "(Server): " + text + "\n");
+                File.AppendAllText(configuration.DataFolder + "AudioDivider.log2", DateTime.Now.ToString("'['hh':'mm':'ss'] '") + "(Server): " + text + "\n");
             }
             catch (Exception)
             {
                 try
                 {
                     Thread.Sleep(100); // To work against race conditions when injecting the Dll
-                    File.AppendAllText(configuration.DataFolder + "AudioDivider.log", DateTime.Now.ToString("'['hh':'mm':'ss'] '") + "(Server): " + text + "\n");
+                    File.AppendAllText(configuration.DataFolder + "AudioDivider.log2", DateTime.Now.ToString("'['hh':'mm':'ss'] '") + "(Server): " + text + "\n");
                 }
                 catch (Exception)
                 {
@@ -56,14 +56,14 @@ namespace AudioDivider
         {
             try
             {
-                File.AppendAllText(configuration.DataFolder + "AudioDivider.log", DateTime.Now.ToString("'['hh':'mm':'ss'] '") + "(Server): " + text + data + "\n");
+                File.AppendAllText(configuration.DataFolder + "AudioDivider.log2", DateTime.Now.ToString("'['hh':'mm':'ss'] '") + "(Server): " + text + data + "\n");
             }
             catch (Exception)
             {
                 try
                 {
                     Thread.Sleep(100); // To work against race conditions when injecting the Dll
-                    File.AppendAllText(configuration.DataFolder + "AudioDivider.log", DateTime.Now.ToString("'['hh':'mm':'ss'] '") + "(Server): " + text + data + "\n");
+                    File.AppendAllText(configuration.DataFolder + "AudioDivider.log2", DateTime.Now.ToString("'['hh':'mm':'ss'] '") + "(Server): " + text + data + "\n");
                 }
                 catch (Exception)
                 {
