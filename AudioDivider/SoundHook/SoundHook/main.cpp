@@ -66,7 +66,7 @@ void* GetDefaultAudioEndpoint_originalAddress;
 typedef HRESULT(_stdcall* GetDevicePtr)(void* _this, LPCWSTR pwstrId, IMMDevice **ppDevice);
 typedef HRESULT(_stdcall* GetDefaultAudioEndpointPtr)(void* _this, EDataFlow dataFlow, ERole role, IMMDevice **ppDevice);
 
-
+//ÐÂ·½·¨
 HRESULT _stdcall GetDefaultAudioEndpoint_Hooked(void* _this, EDataFlow dataFlow, ERole role, IMMDevice **ppDevice)
 {
 	if(forceDeviceId == 0) // If not set to any device just let the program use what it wants
@@ -102,15 +102,19 @@ HRESULT _stdcall GetDevice_Hooked(void* _this, LPCWSTR pwstrId, IMMDevice **ppDe
 // Sets a hook for a COM interface function by patching the vTable
 void hookCOM(IUnknown *pInterface, void* newMethod, void**oldMethod, int offset)
 {
+	addLog("------------hookCOM-----------begin--------");
 	DWORD oldProtect;
 	void** vTable = *((void***)pInterface); // Get the vTable, it's the first member of the interface
 	VirtualProtect(&vTable[offset], sizeof(void*),PAGE_EXECUTE_READWRITE, &oldProtect); // Make the vtable writable, it can be readonly since you are not supposed to write there
 	*oldMethod = vTable[offset]; // Backup method
 	vTable[offset] = newMethod; // Set the hook
+	addLog("------------hookCOM-----------end--------");
 }
 
 void setHooks()
 {
+	addLog("sethook begin");
+
 	const CLSID CLSID_MMDeviceEnumerator = __uuidof(MMDeviceEnumerator);
 	const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
 	const IID IID_IAudioClient = __uuidof(IAudioClient);
@@ -125,6 +129,7 @@ void setHooks()
 
 	hookCOM(deviceEnumerator, &GetDefaultAudioEndpoint_Hooked, &GetDefaultAudioEndpoint_originalAddress, 4);
 	hookCOM(deviceEnumerator, &GetDevice_Hooked, &GetDevice_originalAddress, 5);
+	addLog("sethook end");
 }
 
 #include <Aclapi.h>

@@ -183,9 +183,11 @@ namespace AudioDivider
 		{
 			std::vector<SoundInfoDevice*> devices = SoundHandler::getSoundInfo();
 
+			//进程id
 			int pid = runningPrograms[static_cast<int>(treeSound->SelectedNode->Tag)]->pid;
+			//设备id
 			std::wstring deviceId = devices[combo_Devices->SelectedIndex]->ID;
-
+            //发送之后，要切换默认设备么？
 			communication->ServerSend(pid, 1, deviceId);
 		}
 

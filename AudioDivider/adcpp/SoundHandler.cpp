@@ -16,6 +16,7 @@ namespace AudioDivider
 
 			IPolicyConfigClass tempVar2();
 			IPolicyConfig *policyConfig = static_cast<IPolicyConfig*>(&tempVar2);
+			//默认设备要设置么？
 			policyConfig->SetDefaultEndpoint(id, ERole::eMultimedia);
 		}
 	}
