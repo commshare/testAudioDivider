@@ -3,7 +3,7 @@
 
 LPCWSTR pipeName = L"\\\\.\\pipe\\SoundInjectControllermp3";
 #define LINE1 "{0.0.0.00000000}.{c6132bf1-8f49-46d2-ab60-d86e8bb95050}"
-
+#define AOC "{0.0.0.00000000}.{44486876-6dc6-4247-bddd-b6a3e13007c1}"
 #pragma pack(push, 1)  //#pragma pack(1) 使结构体按1字节方式对齐
 struct ClientMessage
 {
@@ -39,15 +39,15 @@ CreateNamedPipe("\\\\.\\Pipe\\Test",PIPE_ACCESS_DUPLEX,PIPE_NOWAIT,10,1024,1024,
 7、指定默认超时时间，单位ms，同一管道的不同实例指定值需要相同
 8、指向SECURITY_ATTRIBUTES结构的指针，该结构指定了命名管道的安全描述符
 
-原文：https://blog.csdn.net/qq_15029743/article/details/79508568 
+原文：https://blog.csdn.net/qq_15029743/article/details/79508568
 	*/
 	hPipe = CreateNamedPipe(
-		/*TEXT("\\\\.\\Pipe\\pipeTest"),*/pipeName,							//管道名  
-		PIPE_ACCESS_DUPLEX,										//管道类型，双向通信  
-		PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT,  //管道参数  
-		PIPE_UNLIMITED_INSTANCES,								//管道能创建的最大实例数量  
-		0,														//输出缓冲区长度 0表示默认  
-		0,														//输入缓冲区长度 0表示默认  
+		/*TEXT("\\\\.\\Pipe\\pipeTest"),*/pipeName,							//管道名
+		PIPE_ACCESS_DUPLEX,										//管道类型，双向通信
+		PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT,  //管道参数
+		PIPE_UNLIMITED_INSTANCES,								//管道能创建的最大实例数量
+		0,														//输出缓冲区长度 0表示默认
+		0,														//输入缓冲区长度 0表示默认
 		NMPWAIT_WAIT_FOREVER,									//超时时间,NMPWAIT_WAIT_FOREVER为不限时等待
 		NULL);													//指定一个SECURITY_ATTRIBUTES结构,或者传递零值.
 	if (INVALID_HANDLE_VALUE == hPipe)
@@ -63,7 +63,7 @@ CreateNamedPipe("\\\\.\\Pipe\\Test",PIPE_ACCESS_DUPLEX,PIPE_NOWAIT,10,1024,1024,
 		*/
 		printf("Server is now running \n");
 
-		if (!ConnectNamedPipe(hPipe, NULL))						//阻塞等待客户端连接。  
+		if (!ConnectNamedPipe(hPipe, NULL))						//阻塞等待客户端连接。
 		{
 			cout << "connect fail!" << endl;
 			printf("ConnectNamePipe failed with error %x \n", GetLastError());
@@ -119,9 +119,9 @@ http://www.itboth.com/d/VjyAvi
 		memset(&message,0,sizeof(ClientMessage));
 		message.pid = GetCurrentProcessId();
 		message.action = 1;
-		std::string str = std::string(LINE1);
+		std::string str = std::string(AOC);
 		cout << "send to client pid:" << message.pid <<"strsize: "<< str.size() <<" str:" << str.c_str()<< endl;
-#if 0 
+#if 0
 		std::copy(str.begin(), str.end(), message.data);
 		message.data[str.size()] = '\0';
 #else
@@ -135,7 +135,7 @@ http://www.itboth.com/d/VjyAvi
 
 		printf("AFTER MESSAGE SEND\n");
 
-		//CloseHandle(hPipe);											//关闭管道句柄 
+		//CloseHandle(hPipe);											//关闭管道句柄
 	}
 	system("pause");
 	cout << "DisconnectNamedPipe..." << endl;
